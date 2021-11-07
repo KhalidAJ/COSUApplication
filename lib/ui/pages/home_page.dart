@@ -85,7 +85,8 @@ class HomePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               boxShadow: const [
                                 BoxShadow(
-                                  color: Color.fromRGBO(225, 95, 27, .3),
+                                  color: Color.fromRGBO(
+                                      225, 95, 27, 0.30196078431372547),
                                   blurRadius: 20,
                                   offset: Offset(0, 10),
                                 ),
@@ -178,7 +179,7 @@ class HomePage extends StatelessWidget {
                         FadeAnimation(
                           1.7,
                           Text(
-                            'Continue with Social Media',
+                            'Dont have an account?',
                             style: GoogleFonts.poppins(
                               color: Colors.grey,
                             ),
@@ -196,11 +197,11 @@ class HomePage extends StatelessWidget {
                                   height: 50,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(50),
-                                    color: Colors.blue,
+                                    color: Colors.orange[900],
                                   ),
                                   child: Center(
                                     child: Text(
-                                      'Facebook',
+                                      'Register here',
                                       style: GoogleFonts.poppins(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700,
@@ -210,30 +211,7 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              width: 30,
-                            ),
-                            Expanded(
-                              child: FadeAnimation(
-                                1.9,
-                                Container(
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    color: Colors.black,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Github',
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+
                           ],
                         ),
                       ],
