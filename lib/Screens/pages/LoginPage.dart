@@ -10,14 +10,12 @@ class Loginscreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('images/back2.png'))),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: height * .4,
+                height: height * .2,
               ),
               Column(
                 children: <Widget>[
@@ -28,7 +26,7 @@ class Loginscreen extends StatelessWidget {
                         width: 20,
                       ),
                       Text(
-                        'Hello there!',
+                        'Welcome Back!',
                         style: TextStyle(
                             color: Colors.black.withOpacity(.7),
                             fontSize: 50,
@@ -46,7 +44,7 @@ class Loginscreen extends StatelessWidget {
                         height: 8,
                         width: width * .5,
                         decoration: BoxDecoration(
-                            color: Color(0xFFFE7550),
+                            color: Color(0xFF3A1C00),
                             borderRadius: BorderRadius.circular(5)),
                       )
                     ],
@@ -71,7 +69,7 @@ class Loginscreen extends StatelessWidget {
                       enabled: true,
                       height: 50,
                       width: 130,
-                      color: Color(0xFFFE7550),
+                      color: Color(0xFF3A1C00),
                       onPressed: () {},
                       child: Text(
                         'Login',
@@ -80,13 +78,6 @@ class Loginscreen extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.w800),
                       )),
-                  Text(
-                    'need help ?',
-                    style: TextStyle(
-                        color: Color(0xFFFE7550),
-                        fontSize: 22,
-                        fontWeight: FontWeight.w600),
-                  )
                 ],
               ),
               SizedBox(
@@ -113,7 +104,7 @@ class Loginscreen extends StatelessWidget {
                     child: Text(
                       'Register',
                       style: TextStyle(
-                          color: Color(0xFFFE7550),
+                          color: Color(0xFF3A1C00),
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
                           decoration: TextDecoration.underline),
@@ -158,9 +149,9 @@ class customtextfield extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide(color: Colors.transparent))),
         style: TextStyle(
-            color: Colors.black.withOpacity(.6),
+            color: Colors.black.withOpacity(.3),
             fontWeight: FontWeight.w600,
-            fontSize: 23),
+            fontSize: 18),
       ),
     );
   }
