@@ -8,6 +8,8 @@ class Signupscreen extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(title: Text("Registration"),
+      backgroundColor: Color(0xFF3A1C00),),
       resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
@@ -18,7 +20,7 @@ class Signupscreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: height * .06,
+                height: height * 0.01,
               ),
               GestureDetector(
                 onTap: () {
@@ -80,7 +82,7 @@ class Signupscreen extends StatelessWidget {
                 child: ButtonTheme(
                   minWidth: width,
                   height: 55,
-                  child: RaisedButton(color: Color(0xFFFE7550),
+                  child: RaisedButton(color: Color(0xFF3A1C00),
 
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
