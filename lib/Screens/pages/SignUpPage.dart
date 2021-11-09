@@ -8,57 +8,50 @@ class Signupscreen extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(title: Text("Registration"),
-      backgroundColor: Color(0xFF3A1C00),),
-      resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('images/back3.png'), fit: BoxFit.fill),
-            color: Colors.white),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.02,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-
-
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(
-                      width: width * .07,
-                    ),
-                    Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                      size: 30,
-                    )
-                  ],
-                ),
+              Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'Welcome To COSU',
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(.7),
+                            fontSize: 37,
+                            fontFamily: 'font1'),
+                      ),
+                    ],
               ),
               SizedBox(
                 height: height * .03,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        height: 8,
+                        width: width * .5,
+                        decoration: BoxDecoration(
+                            color: Color(0xFF8D4421),
+                            borderRadius: BorderRadius.circular(5)),
+                      )
+                    ],
+                  ),
                   SizedBox(
-                    width: width * .07,
-                  ),
-                  Text(
-                    'Create account',
-                    style: TextStyle(
-                        color: Colors.white, fontFamily: 'font1', fontSize: 30),
-                  ),
-
-                ],
-              ), SizedBox(
                 height: height * .18,
               ),
               customtextfield(
@@ -82,7 +75,7 @@ class Signupscreen extends StatelessWidget {
                 child: ButtonTheme(
                   minWidth: width,
                   height: 55,
-                  child: RaisedButton(color: Color(0xFF3A1C00),
+                  child: RaisedButton(color: Color(0xFF8D4421),
 
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
@@ -94,11 +87,34 @@ class Signupscreen extends StatelessWidget {
                           fontSize: 20
                       ),),),
                 ),
-              )
+              ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal:10.0),
+                    child: Column(
+                      children: [
+                        ButtonTheme(
+                          minWidth: 50,
+                          height: 34,
+                          child: RaisedButton(color: Color(0xFF8D4421),
+
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            onPressed: (){},
+                            child: Text('Go to Login',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20
+                              ),),),
+                        ),
+                      ],
+                    ),
+                  )
             ],
           ),
-        ),
+        ]),
       ),
+    )
     );
   }
 }

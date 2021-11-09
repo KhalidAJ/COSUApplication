@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../BrowseConstants.dart';
 import 'package:cosu_app/Screens/Models/Product.dart';
-import 'package:shop_app/screens/details/details_screen.dart';
+import 'package:cosu_app/Screens/pages/Details/DetailsPage.dart';
 
 import 'categories.dart';
 import 'item_card.dart';

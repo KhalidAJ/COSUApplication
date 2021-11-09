@@ -44,7 +44,7 @@ class Loginscreen extends StatelessWidget {
                         height: 8,
                         width: width * .5,
                         decoration: BoxDecoration(
-                            color: Color(0xFF3A1C00),
+                            color: Color(0xFF8D4421),
                             borderRadius: BorderRadius.circular(5)),
                       )
                     ],
@@ -69,7 +69,7 @@ class Loginscreen extends StatelessWidget {
                       enabled: true,
                       height: 50,
                       width: 130,
-                      color: Color(0xFF3A1C00),
+                      color: Color(0xFF8D4421),
                       onPressed: () {},
                       child: Text(
                         'Login',
@@ -89,7 +89,7 @@ class Loginscreen extends StatelessWidget {
                   Text(
                     "Don't Have an account?",
                     style: TextStyle(
-                        color: Colors.grey,
+                        color: Color(0xFFBD7938),
                         fontWeight: FontWeight.w600,
                         fontSize: 18),
                   ),
@@ -104,7 +104,7 @@ class Loginscreen extends StatelessWidget {
                     child: Text(
                       'Register',
                       style: TextStyle(
-                          color: Color(0xFF3A1C00),
+                          color: Color(0xFFBD7938),
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
                           decoration: TextDecoration.underline),
