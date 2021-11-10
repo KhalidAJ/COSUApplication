@@ -14,7 +14,7 @@ class Signupscreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: height * 0.02,
+                height: height * 0.1,
               ),
               Column(
                 children: <Widget>[
@@ -29,12 +29,12 @@ class Signupscreen extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black.withOpacity(.7),
                             fontSize: 37,
-                            fontFamily: 'font1'),
+                            fontFamily: 'Montserrat'),
                       ),
                     ],
               ),
               SizedBox(
-                height: height * .03,
+                height: height * .01,
               ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -105,7 +105,9 @@ class Signupscreen extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20
-                              ),),),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
