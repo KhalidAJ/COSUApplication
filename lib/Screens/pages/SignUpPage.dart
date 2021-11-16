@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/LoginPage.dart';
 
@@ -9,15 +11,30 @@ class Signupscreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/Background3.png"),
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.dstATop),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: height * 0.1,
+                height: height * 0.04,
               ),
               Column(
                 children: <Widget>[
+                  Image.asset(
+                      'images/LogoCOSU.png',
+                  height: 150,
+                  width: 185,),
+
+                  SizedBox(
+                    height: height * 0.04,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -51,9 +68,6 @@ class Signupscreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
-                height: height * .18,
-              ),
               customtextfield(
                 hint: 'Enter your name',
                 issecured: false,
@@ -70,7 +84,7 @@ class Signupscreen extends StatelessWidget {
               SizedBox(
                 height: height*.1,
               ),
-              Padding(
+                  Padding(
                 padding: const EdgeInsets.symmetric(horizontal:20.0),
                 child: ButtonTheme(
                   minWidth: width,
@@ -88,29 +102,27 @@ class Signupscreen extends StatelessWidget {
                       ),),),
                 ),
               ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal:10.0),
-                    child: Column(
-                      children: [
-                        ButtonTheme(
-                          minWidth: 50,
-                          height: 34,
-                          child: RaisedButton(color: Color(0xFF8D4421),
-
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:10.0),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: height * 0.04,
                             ),
-                            onPressed: (){},
-                            child: Text('Go to Login',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20
+                            ButtonTheme(
+                              minWidth: 20,
+                              height: 34,
+                              child: BackButton(color: Color(0xFF8D4421),
+                                onPressed: (){},
+
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   )
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:animated_button/animated_button.dart';
+import 'package:cosu_app/Screens/pages/BrowseCOSU/Browse.dart';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/SignUpPage.dart';
 
@@ -10,6 +11,13 @@ class Loginscreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/Background3.png"),
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.dstATop),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -30,7 +38,7 @@ class Loginscreen extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black.withOpacity(.7),
                             fontSize: 50,
-                            fontFamily: 'font1'),
+                            fontFamily: 'Montserrat'),
                       )
                     ],
                   ),
@@ -70,7 +78,12 @@ class Loginscreen extends StatelessWidget {
                       height: 50,
                       width: 130,
                       color: Color(0xFF8D4421),
-                      onPressed: () {},
+                      onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen()));
+                      },
                       child: Text(
                         'Login',
                         style: TextStyle(
