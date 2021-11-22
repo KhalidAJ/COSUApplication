@@ -1,13 +1,19 @@
+import 'dart:convert';
 import 'package:animated_button/animated_button.dart';
 import 'package:cosu_app/Screens/pages/BrowseCOSU/Browse.dart';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/SignUpPage.dart';
+import 'package:cosu_app/Screens/pages/Profile/ProfileMenu.dart';
+import 'package:http/http.dart' as http;
+
 
 class Loginscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -23,7 +29,14 @@ class Loginscreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: height * .2,
+                height: height * 0.04,
+              ),
+              Image.asset(
+                'images/LogoCOSU.png',
+                height: 150,
+                width: 185,),
+              SizedBox(
+                height: height * .1,
               ),
               Column(
                 children: <Widget>[
@@ -82,7 +95,7 @@ class Loginscreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
+                                builder: (context) => MyProfilePage()));
                       },
                       child: Text(
                         'Login',
@@ -165,6 +178,7 @@ class customtextfield extends StatelessWidget {
             color: Colors.black.withOpacity(.3),
             fontWeight: FontWeight.w600,
             fontSize: 18),
+
       ),
     );
   }

@@ -14,7 +14,7 @@ class MyHomePage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/Background2.png"),
-            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.dstATop),
             fit: BoxFit.cover,
           ),
         ),
@@ -32,8 +32,8 @@ class MyHomePage extends StatelessWidget {
                       child: Center(
                         child: IconButton(
                           icon: Image.asset('images/LogoCOSU.png'),
+                          //WE NEED TO CHANGE THE COLOR OF THE LOGO
                           iconSize: 300,
-
                           onPressed: () {
                             Navigator.push(
                                 context,
