@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:animated_button/animated_button.dart';
-import 'package:cosu_app/Screens/pages/BrowseCOSU/Browse.dart';
+import 'package:cosu_app/Screens/Pages/Profile/ProfileMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/SignUpPage.dart';
-import 'package:cosu_app/Screens/pages/Profile/ProfileMenu.dart';
 import 'package:http/http.dart' as http;
 
 
