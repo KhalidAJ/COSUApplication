@@ -31,8 +31,8 @@ class Signupscreen extends StatelessWidget {
 
                       Image.asset(
                         'images/LogoCOSU.png',
-                        height: 150,
-                        width: 185,),
+                        height: 100,
+                        width: 100,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[

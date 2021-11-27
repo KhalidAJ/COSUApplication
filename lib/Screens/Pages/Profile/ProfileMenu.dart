@@ -1,3 +1,4 @@
+import 'package:cosu_app/Screens/Pages/BrowseCOSU/Browse.dart';
 import 'package:cosu_app/Screens/Pages/LoginPage.dart';
 import 'package:cosu_app/constants.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,9 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                SizedBox(
+                  height: 2.5,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Row(
@@ -53,15 +57,15 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(18.0),
+
                   child: Text(
-                    "Welcome To COSU!",
-                    style: TextStyle(
-                        color: Color(0xFF3A1C00),
-                        fontFamily: 'RobotoMono',
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.start,
-                  ),
+                      "Welcome To COSU!",
+                      style: TextStyle(
+                          color: Color(0xFF3A1C00),
+                          fontSize: 28.0,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.start,
+                    ),
                 ),
                 Padding(
                     padding: const EdgeInsets.all(12.0),
@@ -79,7 +83,7 @@ class ProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Loginscreen()),
+                                      builder: (context) => HomeScreen()),
                                 );
                               },
                               child: Card(
@@ -121,7 +125,7 @@ class ProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Loginscreen()),
+                                    builder: (context) => HomeScreen()),
                               );
                             },
                             child: Card(
@@ -162,7 +166,7 @@ class ProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Loginscreen()),
+                                    builder: (context) => HomeScreen()),
                               );
                             },
                             child: Card(

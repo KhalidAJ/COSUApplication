@@ -1,3 +1,5 @@
+
+import 'package:cosu_app/Screens/Pages/Profile/ProfileMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'BrowseConstants.dart';
@@ -17,27 +19,29 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/back.svg"),
-        onPressed: () {},
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () {
+        },
+      ),
+      title: Center(
+        child: Image.asset('images/LogoCOSU.png',
+        height: 70,
+        width: 70,
+    ),
+      ),
+      flexibleSpace:
+      Image(
+        image: AssetImage('images/Background2.png'),
+        fit: BoxFit.cover,
       ),
       actions: <Widget>[
         IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/search.svg",
-            // By default our  icon color is white
-            color: kTextColor,
+        icon: Icon(Icons.search),
+          color: Colors.white,
+        onPressed: () {},
           ),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/cart.svg",
-            // By default our  icon color is white
-            color: kTextColor,
-          ),
-          onPressed: () {},
-        ),
-        SizedBox(width: kDefaultPaddin / 2)
+
+        SizedBox(width: kDefaultPaddin / 3)
       ],
     );
   }

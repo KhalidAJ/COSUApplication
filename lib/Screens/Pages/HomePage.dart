@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:animated_button/animated_button.dart';
 import 'package:cosu_app/Screens/pages/LoginPage.dart';
 import 'package:cosu_app/Screens/pages/SignUpPage.dart';
 
@@ -33,7 +32,7 @@ class MyHomePage extends StatelessWidget {
                         child: IconButton(
                           icon: Image.asset('images/LogoCOSU.png'),
                           //WE NEED TO CHANGE THE COLOR OF THE LOGO
-                          iconSize: 300,
+                          iconSize: 200,
                           onPressed: () {
                             Navigator.push(
                                 context,

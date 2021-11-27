@@ -27,12 +27,12 @@ class Loginscreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: height * 0.04,
+                height: height * 0.09,
               ),
               Image.asset(
                 'images/LogoCOSU.png',
-                height: 150,
-                width: 185,),
+                height: 100,
+                width: 100),
               SizedBox(
                 height: height * .1,
               ),
