@@ -1,10 +1,17 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/LoginPage.dart';
 
+class Signupscreen extends StatefulWidget {
+  @override
+  State<Signupscreen> createState() => _SignupscreenState();
+}
 
-class Signupscreen extends StatelessWidget {
+class _SignupscreenState extends State<Signupscreen> {
+
+  List item = ["Customer","Supplier", "Driver", "Business Owner"];
+  String valueChosen = "Supplier";
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -23,7 +30,7 @@ class Signupscreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(
-                    height: height * 0.04,
+                    height: height * 0.09,
                   ),
 
                   Column(
@@ -63,28 +70,42 @@ class Signupscreen extends StatelessWidget {
                           )
                         ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          DropdownButton(
+                            value: valueChosen,
+                            onChanged: (newValue){
+                              setState((){
+                                valueChosen = newValue as String;
+                              });
+                            },
+                            items: item.map((valueItem){
+                              return DropdownMenuItem(
+                                  value: valueItem,
+                                  child: Text(valueItem)
+                              );
+                            }).toList(),
+                          )
+                        ],
+                      ),
                       //TYPE OF USER DROPDOWN LIST
                       customtextfield(
                         hint: 'Phone Number',
                         issecured: false,
+
                       ),customtextfield(
                         hint: 'Email',
                         issecured: false,
                       ),customtextfield(
-                        hint: 'First Name',
-                        issecured: true,
-                      ),customtextfield(
-                        hint: 'Last Name',
+                        hint: 'Name',
                         issecured: true,
                       ),
                       customtextfield(
                         hint: 'Password',
                         issecured: true,
                       ),
-                      customtextfield(
-                        hint: 'Confirm Password',
-                        issecured: true,
-                      ),
+
                       SizedBox(
                         height: height*.02,
                       ),
@@ -106,20 +127,29 @@ class Signupscreen extends StatelessWidget {
                               ),),),
                         ),
                       ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal:10.0),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: height * 0.04,
-                                ),
-                              ],
+                      SizedBox(
+                        height: height * 0.06,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:1.0),
+                        child: ButtonTheme(
+                          height: 18,
+                          child: RaisedButton(color: Color(0xFF643001),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            onPressed: (){
+                            Navigator.pop(context);
+                            },
+                            child: Text('Back To Login',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12
+                              ),
                             ),
                           ),
-                        ],
-                      )
+                        ),
+                      ),
                     ],
                   ),
                 ]),

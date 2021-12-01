@@ -1,6 +1,7 @@
-import 'package:cosu_app/Screens/Pages/BrowseCOSU/Browse.dart';
-import 'package:cosu_app/Screens/Pages/LoginPage.dart';
-import 'package:cosu_app/constants.dart';
+import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsRoasters/BrowseRoasters.dart';
+import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsShops/BrowseShops.dart';
+import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsTools/BrowseTools.dart';
+
 import 'package:flutter/material.dart';
 
 class MyProfilePage extends StatelessWidget {
@@ -19,16 +20,12 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       drawer: NavBar(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu_open),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
         flexibleSpace:
         Image(
-          image: AssetImage('images/Background2.png'),
+          image: AssetImage('images/Background1.png'),
           fit: BoxFit.cover,
         ),
-        title: Image.asset('images/LogoCOSU.png',
+        title: Image.asset('images/LogoCOSUDark.png',
             height: 70,
             width: 70,
         ),
@@ -83,8 +80,9 @@ class ProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => HomeScreen()),
+                                      builder: (context) => BrowseShops()),
                                 );
+
                               },
                               child: Card(
                                 color: Color(0xFFF0D4AB),
@@ -104,7 +102,7 @@ class ProfilePage extends StatelessWidget {
                                         height: 10.0,
                                       ),
                                       Text(
-                                        "Coffee Roasters",
+                                        "Coffee Shops",
                                         style: TextStyle(
                                             color: Color(0xFF643001),
                                             fontWeight: FontWeight.bold,
@@ -125,7 +123,7 @@ class ProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()),
+                                    builder: (context) => BrowseTools()),
                               );
                             },
                             child: Card(
@@ -146,7 +144,7 @@ class ProfilePage extends StatelessWidget {
                                           height: 10.0,
                                         ),
                                         Text(
-                                          "Coffee Roasters",
+                                          "Tools",
                                           style: TextStyle(
                                               color: Color(0xFF643001),
                                               fontWeight: FontWeight.bold,
@@ -166,7 +164,7 @@ class ProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()),
+                                    builder: (context) => BrowseRoasters()),
                               );
                             },
                             child: Card(
