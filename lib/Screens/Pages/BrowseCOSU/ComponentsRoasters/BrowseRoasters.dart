@@ -18,14 +18,14 @@ class BrowseRoasters extends StatelessWidget {
       elevation: 0,
 
       title: Center(
-        child: Image.asset('images/LogoCOSU.png',
+        child: Image.asset('images/LogoCOSUDark.png',
           height: 70,
           width: 70,
         ),
       ),
       flexibleSpace:
       Image(
-        image: AssetImage('images/Background3.png'),
+        image: AssetImage('images/Background1.png'),
         fit: BoxFit.cover,
 
       ),

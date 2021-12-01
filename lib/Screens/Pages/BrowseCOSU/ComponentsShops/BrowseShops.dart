@@ -25,7 +25,7 @@ class BrowseShops extends StatelessWidget {
       ),
       flexibleSpace:
       Image(
-        image: AssetImage('images/Background2.png'),
+        image: AssetImage('images/Background1.png'),
         fit: BoxFit.cover,
       ),
       actions: <Widget>[
