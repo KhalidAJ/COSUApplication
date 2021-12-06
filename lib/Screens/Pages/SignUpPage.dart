@@ -90,20 +90,77 @@ class _SignupscreenState extends State<Signupscreen> {
                         ],
                       ),
                       //TYPE OF USER DROPDOWN LIST
-                      customtextfield(
-                        hint: 'Phone Number',
-                        issecured: false,
-
-                      ),customtextfield(
-                        hint: 'Email',
-                        issecured: false,
-                      ),customtextfield(
-                        hint: 'Name',
-                        issecured: true,
+                      Container(
+                        width: 380,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xFF8D4421), width: 1.0)
+                            ),
+                            labelText: 'Phone Number',
+                          ),
+                          onChanged: (text){
+                            setState(() {
+                            });
+                          },
+                        ),
                       ),
-                      customtextfield(
-                        hint: 'Password',
-                        issecured: true,
+                      SizedBox(
+                        height: height * 0.04,
+                      ),
+                      Container(
+                        width: 380,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xFF8D4421), width: 1.0)
+                            ),
+                            labelText: 'Email',
+                          ),
+                          onChanged: (text){
+                            setState(() {
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.04,
+                      ),
+                      Container(
+                        width: 380,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xFF8D4421), width: 1.0)
+                            ),
+                            labelText: ' Full Name',
+                          ),
+                          onChanged: (text){
+                            setState(() {
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.04,
+                      ),
+                      Container(
+                        width: 380,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xFF8D4421), width: 1)
+                            ),
+                            labelText: 'Password',
+                          ),
+                          onChanged: (text){
+                            setState(() {
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.04,
                       ),
 
                       SizedBox(

@@ -1,11 +1,59 @@
+
 import 'package:animated_button/animated_button.dart';
 import 'package:cosu_app/Screens/Pages/Profile/ProfileMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/SignUpPage.dart';
 import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+class Loginscreen extends StatefulWidget {
+  @override
+  State<Loginscreen> createState() => _LoginscreenState();
+}
+
+class _LoginscreenState extends State<Loginscreen> {
+  final storage = new FlutterSecureStorage();
+
+  String _PhoneNumber = '';
+  String _Password = '';
+
+  login() async {
+    // http.Response response = await http.get(Uri.parse('http://10.0.2.2:5000/api/renter/test'));
+    http.Response response = await http.post(
+      Uri.parse('http://10.0.2.2:5000/api/customer/login'),
+      body:{
+        "phoneNumber":_PhoneNumber,
+        "password":_Password,
+      },
+    );
+    final responseJson = json.decode(response.body);
+    // if (response.statusCode.toString() == '200'){
+    //   await storage.delete(key: 'token');
+    //   await storage.write(key: 'token', value: responseJson['token']);
+    //   // the_token = await storage.read(key:'token');
+    //   debugPrint(await storage.read(key:'token'));
+    //
+    // }
+    debugPrint(response.statusCode.toString());
+    debugPrint(responseJson.toString());
+    if(response.statusCode.toString() == '200'){
+      await storage.delete(key: 'token');
+      await storage.write(key: 'token', value: responseJson['token']);
+      // the_token = await storage.read(key:'token');
+      debugPrint(await storage.read(key:'token'));
+
+      Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: (context) => MyProfilePage()
+          )
+      );
+    }
+    return response.statusCode.toString();
+  }
 
 
-class Loginscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -30,11 +78,11 @@ class Loginscreen extends StatelessWidget {
                 height: height * 0.09,
               ),
               Image.asset(
-                'images/LogoCOSU.png',
-                height: 100,
-                width: 100),
+                  'images/LogoCOSU.png',
+                  height: 100,
+                  width: 100),
               SizedBox(
-                height: height * .1,
+                height: height * .06,
               ),
               Column(
                 children: <Widget>[
@@ -42,7 +90,7 @@ class Loginscreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
-                        width: 20,
+                        width: 15,
                       ),
                       Text(
                         'Welcome Back!',
@@ -53,6 +101,7 @@ class Loginscreen extends StatelessWidget {
                       )
                     ],
                   ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -67,16 +116,48 @@ class Loginscreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)),
                       )
                     ],
-                  )
+
+                  ),
+                  SizedBox(
+                    height: height * .04,
+                  ),
                 ],
               ),
-              customtextfield(
-                hint: 'Enter your email',
-                issecured: false,
+
+              Container(
+                width: 380,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                    ),
+                    labelText: 'Phone Number',
+                  ),
+                  onChanged: (text){
+                    setState(() {
+                      _PhoneNumber = text;
+                    });
+                  },
+                ),
               ),
-              customtextfield(
-                hint: 'Enter your password',
-                issecured: true,
+              SizedBox(
+                height: height * 0.04,
+              ),
+              Container(
+                width: 380,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+
+                    ),
+                    labelText: 'Password',
+                  ),
+
+                  onChanged: (text){
+                    setState(() {
+                      _Password = text;
+                    });
+                  },
+                ),
               ),
               SizedBox(
                 height: 25,
@@ -90,10 +171,7 @@ class Loginscreen extends StatelessWidget {
                       width: 130,
                       color: Color(0xFF8D4421),
                       onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyProfilePage()));
+                        login();
                       },
                       child: Text(
                         'Login',
@@ -147,6 +225,7 @@ class Loginscreen extends StatelessWidget {
 class customtextfield extends StatelessWidget {
   bool issecured;
   String hint;
+
 
   customtextfield({required this.hint, required this.issecured});
 
