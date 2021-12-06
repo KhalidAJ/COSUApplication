@@ -1,0 +1,188 @@
+import 'package:flutter/material.dart';
+
+class MenuPage extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new ListPage(),
+    );
+  }
+}
+
+class ListPage extends StatefulWidget {
+  ListPage({Key? key}) : super(key: key);
+
+  @override
+  _ListPageState createState() => _ListPageState();
+}
+
+class _ListPageState extends State<ListPage> {
+  late List lessons;
+
+  @override
+  void initState() {
+    lessons = getLessons();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ListTile makeListTile(Shops lesson) => ListTile(
+      contentPadding:
+      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+      leading: Container(
+        padding: EdgeInsets.only(right: 12.0),
+        decoration: new BoxDecoration(
+            border: new Border(
+                right: new BorderSide(width: 1.0, color: Colors.black54))),
+        child: ImageIcon(
+        AssetImage("images/LogoCOSU.png"),
+        ),
+      ),
+      title: Text(
+        lesson.ShopName,
+        style: TextStyle(color: Color(0xFF643001), fontWeight: FontWeight.bold),
+      ),
+      // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+
+      subtitle: Row(
+        children: <Widget>[
+
+          Expanded(
+            flex: 4,
+            child: Padding(
+                padding: EdgeInsets.only(left: 10.0),
+                child: Text(lesson.ShopAvailability,
+                    style: TextStyle(color: Color(0xFF643001)))),
+          )
+        ],
+      ),
+      trailing:
+      Icon(Icons.keyboard_arrow_right, color: Color(0xFF643001), size: 30.0),
+      onTap: () {
+
+      },
+    );
+
+    Card makeCard(Shops lesson) => Card(
+      elevation: 0,
+      margin: new EdgeInsets.symmetric(),
+      child: Container(
+        decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage("images/Background2.png"),
+            fit: BoxFit.cover,
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop)
+        ),
+        color: Colors.transparent),
+        child: makeListTile(lesson),
+      ),
+    );
+
+    final makeBody = Container(
+      decoration:  BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/Background1.png"),
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.45), BlendMode.dstATop),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: lessons.length,
+        itemBuilder: (BuildContext context, int index) {
+          return makeCard(lessons[index]);
+        },
+      ),
+    );
+
+
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+
+        title: Center(
+          child: Image.asset('images/LogoCOSUDark.png',
+            height: 70,
+            width: 70,
+          ),
+        ),
+        flexibleSpace:
+        Image(
+          image: AssetImage('images/Background1.png'),
+          fit: BoxFit.cover,
+        ),
+        leading: IconButton(
+          icon:Icon(Icons.arrow_back),
+          onPressed:() => Navigator.pop(context, false),
+        ),
+      ),
+      body: makeBody,
+    );
+  }
+}
+
+List getLessons() {
+  return [
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Open",
+        Area: "Nakheel"
+    ),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Open",
+        Area: "Aqeek"
+    ),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Open",
+        Area: "Malqa"
+
+    ),    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Closed",
+        Area: "Nakheel"
+
+    ),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Closed",
+        Area:
+        ""),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Closed",
+        Area:
+        ""),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Closed",
+        Area:
+        ""
+    ),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Closed",
+        Area: " "
+    ),
+    Shops(
+        ShopName: "COFFEENAME",
+        ShopAvailability: "Closed",
+        Area: "Nakheel",
+    )
+
+
+
+  ];
+}
+
+class Shops {
+  String ShopName;
+  String ShopAvailability;
+  String Area;
+
+  Shops(
+      {required this.ShopName, required this.ShopAvailability, required this.Area});
+}

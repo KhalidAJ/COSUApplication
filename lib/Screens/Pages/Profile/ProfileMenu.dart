@@ -2,7 +2,10 @@ import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsRoasters/BrowseRoast
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsShops/BrowseShops.dart';
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsTools/BrowseTools.dart';
 
+
 import 'package:flutter/material.dart';
+
+import 'MenuPage.dart';
 
 class MyProfilePage extends StatelessWidget {
   MyProfilePage({Key? key}) : super(key: key);
@@ -80,7 +83,7 @@ class ProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => BrowseShops()),
+                                      builder: (context) => ListPage()),
                                 );
 
                               },
