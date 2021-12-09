@@ -33,7 +33,7 @@ class _ListPageState extends State<ListPage> {
       contentPadding:
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       leading: Container(
-        padding: EdgeInsets.only(right: 12.0),
+        padding: EdgeInsets.only(right: 8.0),
         decoration: new BoxDecoration(
             border: new Border(
                 right: new BorderSide(width: 1.0, color: Colors.black54))),
@@ -53,7 +53,7 @@ class _ListPageState extends State<ListPage> {
           Expanded(
             flex: 4,
             child: Padding(
-                padding: EdgeInsets.only(left: 10.0),
+                padding: EdgeInsets.only(left: 2.0),
                 child: Text(shop.ShopAvailability,
                     style: TextStyle(color: Color(0xFF643001)))),
           )
@@ -87,8 +87,8 @@ class _ListPageState extends State<ListPage> {
     final makeBody = Container(
       decoration:  BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("images/Background1.png"),
-          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.45), BlendMode.dstATop),
+          image: AssetImage("images/Background2.png"),
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
           fit: BoxFit.cover,
         ),
       ),

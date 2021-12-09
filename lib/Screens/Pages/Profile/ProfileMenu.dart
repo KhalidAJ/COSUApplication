@@ -34,8 +34,8 @@ class ProfilePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/Background3.png"),
-            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.dstATop),
+            image: AssetImage("images/Background2.png"),
+            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.dstATop),
             fit: BoxFit.cover,
           ),
         ),
@@ -54,12 +54,11 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(18.0),
-
                   child: Center(
                     child: Text(
-                        "COSU Menu",
+                        "The Menu",
                         style: TextStyle(
-                            color: Color(0xFF8D4421),
+                            color: Color(0xFFF0D4AB),
                             fontSize: 35.0,
                             fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic),
@@ -68,7 +67,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(2.5),
                     child: Center(
                         child: Wrap(
                       spacing: 20,
@@ -76,7 +75,7 @@ class ProfilePage extends StatelessWidget {
                       children: <Widget>[
                         Center(
                           child: SizedBox(
-                            width: 350.0,
+                            width: 700.0,
                             height: 160.0,
                             child: InkWell(
                               onTap: () {
@@ -113,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                         Center(
                           child: SizedBox(
-                            width: 350.0,
+                            width: 700.0,
                             height: 160.0,
                             child: InkWell(
                               onTap: () {
@@ -151,7 +150,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                         Center(
                           child: SizedBox(
-                            width: 350.0,
+                            width: 700.0,
                             height: 160.0,
                             child: InkWell(
                               onTap: () {
