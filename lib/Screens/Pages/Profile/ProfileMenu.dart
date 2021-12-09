@@ -1,10 +1,7 @@
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsRoasters/BrowseRoasters.dart';
-import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsShops/BrowseShops.dart';
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsTools/BrowseTools.dart';
-
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'MenuPage.dart';
 
 class MyProfilePage extends StatelessWidget {
@@ -58,14 +55,17 @@ class ProfilePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
 
-                  child: Text(
-                      "Welcome To COSU!",
-                      style: TextStyle(
-                          color: Color(0xFF3A1C00),
-                          fontSize: 28.0,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.start,
-                    ),
+                  child: Center(
+                    child: Text(
+                        "COSU Menu",
+                        style: TextStyle(
+                            color: Color(0xFF8D4421),
+                            fontSize: 35.0,
+                            fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                        textAlign: TextAlign.start,
+                      ),
+                  ),
                 ),
                 Padding(
                     padding: const EdgeInsets.all(12.0),
@@ -76,7 +76,7 @@ class ProfilePage extends StatelessWidget {
                       children: <Widget>[
                         Center(
                           child: SizedBox(
-                            width: 160.0,
+                            width: 350.0,
                             height: 160.0,
                             child: InkWell(
                               onTap: () {
@@ -85,124 +85,111 @@ class ProfilePage extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => ListPage()),
                                 );
-
                               },
                               child: Card(
                                 color: Color(0xFFF0D4AB),
                                 elevation: 2.0,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.0)),
-                                child: Center(
-                                    child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset(
-                                        "assets/note.png",
-                                        width: 64.0,
-                                      ),
-                                      SizedBox(
-                                        height: 10.0,
-                                      ),
-                                      Text(
-                                        "Coffee Shops",
-                                        style: TextStyle(
-                                            color: Color(0xFF643001),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
-                                      ),
-                                    ],
+                                child : Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(image: AssetImage("images/Background3.png"),
+                                      fit: BoxFit.cover,
+                                      colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop),
+                                    ),
                                   ),
-                                )),
+                                  child : Center(child: Text("COFFEE SHOPS",
+                                    style: TextStyle(
+                                        color: Color(0xFF643001),
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 20.0),
+                                  )
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 160.0,
-                          height: 160.0,
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => BrowseTools()),
-                              );
-                            },
-                            child: Card(
-                              color: Color(0xFFF0D4AB),
-                              elevation: 2.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0)),
-                              child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Image.asset(
-                                          "assets/note.png",
-                                          width: 64.0,
+                        Center(
+                          child: SizedBox(
+                            width: 350.0,
+                            height: 160.0,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ListPage()),
+                                );
+                              },
+                              child: Card(
+                                color: Color(0xFFF0D4AB),
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0)),
+                                    child : Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(image: AssetImage("images/Background3.png"),
+                                          fit: BoxFit.cover,
+                                          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop),
                                         ),
-                                        SizedBox(
-                                          height: 10.0,
-                                        ),
-                                        Text(
-                                          "Tools",
-                                          style: TextStyle(
-                                              color: Color(0xFF643001),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20.0),
-                                        ),
-                                      ],
+                                      ),
+                                    child : Center(child: Text("ROASTERS",
+                                    style: TextStyle(
+                                        color: Color(0xFF643001),
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 20.0),
+                                    )
                                     ),
-                                  )),
+                                    ),
+
+                              ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 160.0,
-                          height: 160.0,
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => BrowseRoasters()),
-                              );
-                            },
-                            child: Card(
-                              color: Color(0xFFF0D4AB),
-                              elevation: 2.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0)),
-                              child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Image.asset(
-                                          "assets/note.png",
-                                          width: 64.0,
-                                        ),
-                                        SizedBox(
-                                          height: 10.0,
-                                        ),
-                                        Text(
-                                          "Coffee Roasters",
-                                          style: TextStyle(
-                                              color: Color(0xFF643001),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20.0),
-                                        ),
-                                      ],
+                        Center(
+                          child: SizedBox(
+                            width: 350.0,
+                            height: 160.0,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ListPage()),
+                                );
+                              },
+                              child: Card(
+                                color: Color(0xFFF0D4AB),
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0)),
+                                child : Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(image: AssetImage("images/Background3.png"),
+                                      fit: BoxFit.cover,
+                                      colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop),
                                     ),
+                                  ),
+                                  child : Center(child: Text("TOOLS",
+                                    style: TextStyle(
+                                        color: Color(0xFF643001),
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 20.0),
                                   )
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ],
-                    ))),
+                    )
+                    )
+                ),
               ],
             ),
           ),

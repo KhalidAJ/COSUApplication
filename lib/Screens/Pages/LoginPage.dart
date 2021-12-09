@@ -172,6 +172,11 @@ class _LoginscreenState extends State<Loginscreen> {
                       color: Color(0xFF8D4421),
                       onPressed: (){
                         login();
+                        Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => MyProfilePage()
+                            )
+                        );
                       },
                       child: Text(
                         'Login',

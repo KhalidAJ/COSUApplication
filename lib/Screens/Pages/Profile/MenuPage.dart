@@ -1,3 +1,4 @@
+import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsRoasters/BrowseRoasters.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
@@ -18,17 +19,17 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-  late List lessons;
+  late List shops;
 
   @override
   void initState() {
-    lessons = getLessons();
+    shops = getShops();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    ListTile makeListTile(Shops lesson) => ListTile(
+    ListTile makeListTile(Shops shop) => ListTile(
       contentPadding:
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       leading: Container(
@@ -41,7 +42,7 @@ class _ListPageState extends State<ListPage> {
         ),
       ),
       title: Text(
-        lesson.ShopName,
+        shop.ShopName,
         style: TextStyle(color: Color(0xFF643001), fontWeight: FontWeight.bold),
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
@@ -53,7 +54,7 @@ class _ListPageState extends State<ListPage> {
             flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 10.0),
-                child: Text(lesson.ShopAvailability,
+                child: Text(shop.ShopAvailability,
                     style: TextStyle(color: Color(0xFF643001)))),
           )
         ],
@@ -61,11 +62,15 @@ class _ListPageState extends State<ListPage> {
       trailing:
       Icon(Icons.keyboard_arrow_right, color: Color(0xFF643001), size: 30.0),
       onTap: () {
-
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => BrowseRoasters()),
+        );
       },
     );
 
-    Card makeCard(Shops lesson) => Card(
+    Card makeCard(Shops shop) => Card(
       elevation: 0,
       margin: new EdgeInsets.symmetric(),
       child: Container(
@@ -75,7 +80,7 @@ class _ListPageState extends State<ListPage> {
             colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop)
         ),
         color: Colors.transparent),
-        child: makeListTile(lesson),
+        child: makeListTile(shop),
       ),
     );
 
@@ -90,9 +95,9 @@ class _ListPageState extends State<ListPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: lessons.length,
+        itemCount: shops.length,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(lessons[index]);
+          return makeCard(shops[index]);
         },
       ),
     );
@@ -123,7 +128,7 @@ class _ListPageState extends State<ListPage> {
   }
 }
 
-List getLessons() {
+List getShops() {
   return [
     Shops(
         ShopName: "COFFEENAME",
@@ -159,8 +164,7 @@ List getLessons() {
     Shops(
         ShopName: "COFFEENAME",
         ShopAvailability: "Closed",
-        Area:
-        ""
+        Area: ""
     ),
     Shops(
         ShopName: "COFFEENAME",
@@ -172,9 +176,6 @@ List getLessons() {
         ShopAvailability: "Closed",
         Area: "Nakheel",
     )
-
-
-
   ];
 }
 
