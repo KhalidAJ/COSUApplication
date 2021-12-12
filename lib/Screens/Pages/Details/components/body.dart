@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/Models/Product.dart';
-
 import 'package:cosu_app/Screens/pages/BrowseCOSU/BrowseConstants.dart';
-
 import 'add_to_cart.dart';
-import 'color_and_size.dart';
-import 'counter_with_fav_btn.dart';
+import 'counter_with_fav.dart';
 import 'description.dart';
 import 'product_title_with_image.dart';
 
@@ -15,7 +12,6 @@ class Body extends StatelessWidget {
   const Body({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // It provide us total height and width
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
@@ -41,7 +37,6 @@ class Body extends StatelessWidget {
                   ),
                   child: Column(
                     children: <Widget>[
-                      ColorAndSize(product: product),
                       SizedBox(height: kDefaultPaddin / 2),
                       Description(product: product),
                       SizedBox(height: kDefaultPaddin / 2),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/Models/Product.dart';
-
 import 'package:cosu_app/Screens/pages/BrowseCOSU/BrowseConstants.dart';
 
 class ProductTitleWithImage extends StatelessWidget {
@@ -18,10 +17,6 @@ class ProductTitleWithImage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            "Aristocratic Hand Bag",
-            style: TextStyle(color: Colors.white),
-          ),
           Text(
             product.title,
             style: Theme.of(context)

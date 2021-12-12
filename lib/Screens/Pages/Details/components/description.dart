@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/Models/Product.dart';
-
 import 'package:cosu_app/Screens/pages/BrowseCOSU/BrowseConstants.dart';
 
 class Description extends StatelessWidget {
