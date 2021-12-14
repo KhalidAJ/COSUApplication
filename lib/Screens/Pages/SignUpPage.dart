@@ -1,6 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/LoginPage.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Signupscreen extends StatefulWidget {
   @override
@@ -8,6 +11,48 @@ class Signupscreen extends StatefulWidget {
 }
 
 class _SignupscreenState extends State<Signupscreen> {
+  final storage = new FlutterSecureStorage();
+
+  String _username = '';
+  String _phoneNumber = '';
+  String _name = '';
+  String _password = '';
+
+  String _validation = 'xx';
+
+
+  signup() async {
+    // http.Response response = await http.get(Uri.parse('http://10.0.2.2:5000/api/renter/test'));
+    http.Response response = await http.post(
+      Uri.parse('http://10.0.2.2:5000/api/customer/register'),
+      body: {
+        "userName": _username,
+        "phoneNumber": _phoneNumber,
+        "name": _name,
+        "password": _password,
+      },
+    );
+    final responseJson = json.decode(response.body);
+    debugPrint(response.statusCode.toString());
+    debugPrint(responseJson.toString());
+    if (response.statusCode.toString() == '200') {
+      await storage.write(key: 'token', value: responseJson['token']);
+      debugPrint(await storage.read(key: 'token'));
+    }
+    if (response.statusCode.toString() == '200') {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Loginscreen()));
+      // Navigator.of(context).push(
+      //   MaterialPageRoute(
+      //       builder: (context) => Home(),
+      //   )
+      // );
+    }
+    if (response.statusCode.toString() == '402') {
+      _validation = responseJson['msg'].toString();
+      debugPrint(_validation);
+    }
+    return response.statusCode.toString();
+  }
 
   List item = ["Customer","Supplier", "Driver", "Business Owner"];
   String valueChosen = "Supplier";
@@ -74,9 +119,6 @@ class _SignupscreenState extends State<Signupscreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           DropdownButton(
-                            dropdownColor: Color(0xFFFFF2E2),
-                            elevation: 10,
-                            borderRadius: BorderRadius.circular(10),
                             value: valueChosen,
                             onChanged: (newValue){
                               setState((){
@@ -93,6 +135,7 @@ class _SignupscreenState extends State<Signupscreen> {
                         ],
                       ),
                       //TYPE OF USER DROPDOWN LIST
+
                       Container(
                         width: 380,
                         child: TextFormField(
@@ -100,10 +143,11 @@ class _SignupscreenState extends State<Signupscreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFF8D4421), width: 1.0)
                             ),
-                            labelText: 'Phone Number',
+                            labelText: 'User Name',
                           ),
                           onChanged: (text){
                             setState(() {
+                              _username = text;
                             });
                           },
                         ),
@@ -118,10 +162,11 @@ class _SignupscreenState extends State<Signupscreen> {
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFF8D4421), width: 1.0)
                             ),
-                            labelText: 'Email',
+                            labelText: 'Phone Number',
                           ),
                           onChanged: (text){
                             setState(() {
+                              _phoneNumber = text;
                             });
                           },
                         ),
@@ -140,6 +185,7 @@ class _SignupscreenState extends State<Signupscreen> {
                           ),
                           onChanged: (text){
                             setState(() {
+                              _name = text;
                             });
                           },
                         ),
@@ -150,18 +196,15 @@ class _SignupscreenState extends State<Signupscreen> {
                       Container(
                         width: 380,
                         child: TextFormField(
-                          obscureText: true,
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFF8D4421), width: 1)
                             ),
                             labelText: 'Password',
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.red),
-                            ) ,
                           ),
                           onChanged: (text){
                             setState(() {
+                              _password = text;
                             });
                           },
                         ),
@@ -183,7 +226,9 @@ class _SignupscreenState extends State<Signupscreen> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            onPressed: (){},
+                            onPressed: (){
+                              signup();
+                            },
                             child: Text('Create Now',
                               style: TextStyle(
                                   color: Colors.white,
@@ -203,7 +248,7 @@ class _SignupscreenState extends State<Signupscreen> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             onPressed: (){
-                            Navigator.pop(context);
+                              Navigator.pop(context);
                             },
                             child: Text('Back To Login',
                               style: TextStyle(

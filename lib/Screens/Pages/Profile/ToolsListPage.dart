@@ -48,18 +48,7 @@ class _ToolsListPageState extends State<ToolsListPage> {
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
-      subtitle: Row(
-        children: <Widget>[
 
-          Expanded(
-            flex: 4,
-            child: Padding(
-                padding: EdgeInsets.only(left: 2.0),
-                child: Text(shop.ShopAvailability,
-                    style: TextStyle(color: Color(0xFF643001)))),
-          )
-        ],
-      ),
       trailing:
       Icon(Icons.keyboard_arrow_right, color: Color(0xFF643001), size: 30.0),
       onTap: () {
@@ -133,48 +122,39 @@ List getToolShops() {
   return [
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Open",
         Area: "Nakheel"
     ),
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Open",
         Area: "Aqeek"
     ),
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Open",
         Area: "Malqa"
 
     ),    ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Closed",
         Area: "Nakheel"
 
     ),
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Closed",
         Area:
         ""),
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Closed",
         Area:
         ""),
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Closed",
         Area: ""
     ),
     ToolShops(
         ShopName: "TOOLSHOP",
-        ShopAvailability: "Closed",
         Area: " "
     ),
     ToolShops(
       ShopName: "TOOLSHOP",
-      ShopAvailability: "Closed",
       Area: "Nakheel",
     )
   ];
@@ -182,9 +162,8 @@ List getToolShops() {
 
 class ToolShops {
   String ShopName;
-  String ShopAvailability;
   String Area;
 
   ToolShops(
-      {required this.ShopName, required this.ShopAvailability, required this.Area});
+      {required this.ShopName, required this.Area});
 }
