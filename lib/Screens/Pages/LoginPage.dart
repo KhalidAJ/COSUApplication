@@ -1,6 +1,7 @@
 
 import 'package:animated_button/animated_button.dart';
-import 'package:cosu_app/Screens/Pages/Profile/ProfileMenu.dart';
+import 'package:cosu_app/Screens/Pages/Profile/DriverMenu.dart';
+import 'package:cosu_app/Screens/Pages/Profile/CustomerMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/pages/SignUpPage.dart';
 import 'package:http/http.dart' as http;
@@ -15,6 +16,9 @@ class Loginscreen extends StatefulWidget {
 
 class _LoginscreenState extends State<Loginscreen> {
   final storage = new FlutterSecureStorage();
+
+  List item = ["Customer", "Driver"];
+  String valueChosen = "Customer";
 
   String _PhoneNumber = '';
   String _Password = '';
@@ -46,7 +50,7 @@ class _LoginscreenState extends State<Loginscreen> {
 
       Navigator.of(context).push(
           MaterialPageRoute(
-              builder: (context) => MyProfilePage()
+              builder: (context) => DriverPage()
           )
       );
     }
@@ -118,6 +122,28 @@ class _LoginscreenState extends State<Loginscreen> {
                     ],
 
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      DropdownButton(
+                        dropdownColor: Color(0xFFFFF2E2),
+                        elevation: 10,
+                        borderRadius: BorderRadius.circular(10),
+                        value: valueChosen,
+                        onChanged: (newValue){
+                          setState((){
+                            valueChosen = newValue as String;
+                          });
+                        },
+                        items: item.map((valueItem){
+                          return DropdownMenuItem(
+                              value: valueItem,
+                              child: Text(valueItem)
+                          );
+                        }).toList(),
+                      )
+                    ],
+                  ),
                   SizedBox(
                     height: height * .04,
                   ),
@@ -145,11 +171,14 @@ class _LoginscreenState extends State<Loginscreen> {
               Container(
                 width: 380,
                 child: TextFormField(
+                  obscureText: true,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-
                     ),
                     labelText: 'Password',
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                    ) ,
                   ),
 
                   onChanged: (text){
@@ -171,13 +200,24 @@ class _LoginscreenState extends State<Loginscreen> {
                       width: 130,
                       color: Color(0xFF8D4421),
                       onPressed: (){
-                        login();
-                        Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (context) => MyProfilePage()
-                            )
-                        );
-                      },
+                        if(valueChosen.contains("Driver")) {
+                          login();
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => DriverPage()
+                              )
+                          );
+                        }
+                        if(valueChosen.contains("Customer")) {
+                          login();
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => ProfilePage()
+                              )
+                          );
+                        }
+
+                        },
                       child: Text(
                         'Login',
                         style: TextStyle(

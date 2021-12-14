@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'CartController.dart';
-import 'CartItems.dart';
-
+import 'CartBar.dart';
 
 class CartItemWidget extends StatelessWidget {
-  final CartItemModel cartItem;
+  final CartItems cartItem;
 
   const CartItemWidget({required Key key, required this.cartItem}) : super(key: key);
   @override
@@ -16,10 +14,6 @@ class CartItemWidget extends StatelessWidget {
         Padding(
           padding:
           const EdgeInsets.all(8.0),
-          child: Image.network(
-            cartItem.image,
-            width: 80,
-          ),
         ),
         Expanded(
             child: Wrap(

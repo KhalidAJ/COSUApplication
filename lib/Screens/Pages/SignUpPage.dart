@@ -74,6 +74,9 @@ class _SignupscreenState extends State<Signupscreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           DropdownButton(
+                            dropdownColor: Color(0xFFFFF2E2),
+                            elevation: 10,
+                            borderRadius: BorderRadius.circular(10),
                             value: valueChosen,
                             onChanged: (newValue){
                               setState((){
@@ -147,11 +150,15 @@ class _SignupscreenState extends State<Signupscreen> {
                       Container(
                         width: 380,
                         child: TextFormField(
+                          obscureText: true,
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFF8D4421), width: 1)
                             ),
                             labelText: 'Password',
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red),
+                            ) ,
                           ),
                           onChanged: (text){
                             setState(() {

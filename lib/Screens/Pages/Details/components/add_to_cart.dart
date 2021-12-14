@@ -2,7 +2,6 @@ import 'package:cosu_app/Screens/Pages/Details/CartPopup/CartBar.dart';
 import 'package:flutter/material.dart';
 import 'package:cosu_app/Screens/Models/Product.dart';
 import 'package:cosu_app/Screens/pages/BrowseCOSU/BrowseConstants.dart';
-import '../Cart.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class AddToCart extends StatelessWidget {

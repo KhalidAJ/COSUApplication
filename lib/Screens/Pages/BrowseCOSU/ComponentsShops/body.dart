@@ -3,16 +3,16 @@ import '../BrowseConstants.dart';
 import 'package:cosu_app/Screens/Models/Product.dart';
 import 'package:cosu_app/Screens/pages/Details/DetailsPage.dart';
 
-import 'categories.dart';
 import 'item_card.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Categories(),
+        SizedBox(
+          height: 30,
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),

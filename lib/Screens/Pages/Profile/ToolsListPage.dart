@@ -1,4 +1,5 @@
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsRoasters/BrowseRoasters.dart';
+import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsTools/BrowseTools.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
@@ -6,30 +7,30 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      home: new ListPage(),
+      home: new ToolsListPage(),
     );
   }
 }
 
-class ListPage extends StatefulWidget {
-  ListPage({Key? key}) : super(key: key);
+class ToolsListPage extends StatefulWidget {
+  ToolsListPage({Key? key}) : super(key: key);
 
   @override
-  _ListPageState createState() => _ListPageState();
+  _ToolsListPageState createState() => _ToolsListPageState();
 }
 
-class _ListPageState extends State<ListPage> {
+class _ToolsListPageState extends State<ToolsListPage> {
   late List shops;
 
   @override
   void initState() {
-    shops = getShops();
+    shops = getToolShops();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    ListTile makeListTile(Shops shop) => ListTile(
+    ListTile makeListTile(ToolShops shop) => ListTile(
       contentPadding:
       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       leading: Container(
@@ -38,7 +39,7 @@ class _ListPageState extends State<ListPage> {
             border: new Border(
                 right: new BorderSide(width: 1.0, color: Colors.black54))),
         child: ImageIcon(
-        AssetImage("images/LogoCOSU.png"),
+          AssetImage("images/LogoCOSU.png"),
         ),
       ),
       title: Text(
@@ -65,21 +66,21 @@ class _ListPageState extends State<ListPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => BrowseRoasters()),
+              builder: (context) => BrowseTools()),
         );
       },
     );
 
-    Card makeCard(Shops shop) => Card(
+    Card makeCard(ToolShops shop) => Card(
       elevation: 0,
       margin: new EdgeInsets.symmetric(),
       child: Container(
         decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("images/Background2.png"),
-            fit: BoxFit.cover,
-            colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop)
-        ),
-        color: Colors.transparent),
+            image: DecorationImage(image: AssetImage("images/Background2.png"),
+                fit: BoxFit.cover,
+                colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.dstATop)
+            ),
+            color: Colors.transparent),
         child: makeListTile(shop),
       ),
     );
@@ -128,62 +129,62 @@ class _ListPageState extends State<ListPage> {
   }
 }
 
-List getShops() {
+List getToolShops() {
   return [
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Open",
         Area: "Nakheel"
     ),
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Open",
         Area: "Aqeek"
     ),
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Open",
         Area: "Malqa"
 
-    ),    Shops(
-        ShopName: "COFFEENAME",
+    ),    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Closed",
         Area: "Nakheel"
 
     ),
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Closed",
         Area:
         ""),
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Closed",
         Area:
         ""),
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Closed",
         Area: ""
     ),
-    Shops(
-        ShopName: "COFFEENAME",
+    ToolShops(
+        ShopName: "TOOLSHOP",
         ShopAvailability: "Closed",
         Area: " "
     ),
-    Shops(
-        ShopName: "COFFEENAME",
-        ShopAvailability: "Closed",
-        Area: "Nakheel",
+    ToolShops(
+      ShopName: "TOOLSHOP",
+      ShopAvailability: "Closed",
+      Area: "Nakheel",
     )
   ];
 }
 
-class Shops {
+class ToolShops {
   String ShopName;
   String ShopAvailability;
   String Area;
 
-  Shops(
+  ToolShops(
       {required this.ShopName, required this.ShopAvailability, required this.Area});
 }

@@ -1,8 +1,9 @@
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsRoasters/BrowseRoasters.dart';
 import 'package:cosu_app/Screens/Pages/BrowseCOSU/ComponentsTools/BrowseTools.dart';
+import 'package:cosu_app/Screens/Pages/LoginPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'MenuPage.dart';
+import 'CoffeeListPage.dart';
 
 class MyProfilePage extends StatelessWidget {
   MyProfilePage({Key? key}) : super(key: key);
@@ -82,7 +83,7 @@ class ProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ListPage()),
+                                      builder: (context) => CoffeeShopListPage()),
                                 );
                               },
                               child: Card(
@@ -119,7 +120,7 @@ class ProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ListPage()),
+                                      builder: (context) => CoffeeShopListPage()),
                                 );
                               },
                               child: Card(
@@ -157,7 +158,7 @@ class ProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ListPage()),
+                                      builder: (context) => CoffeeShopListPage()),
                                 );
                               },
                               child: Card(
@@ -214,13 +215,21 @@ class NavBar extends StatelessWidget {
           ),
         ),
         ListTile(
-          leading: Icon(Icons.favorite),
-          title: Text('Favorite'),
+          leading: Icon(Icons.contacts),
+          title: Text('Contact Us'),
+          onTap: (){
+            SnackBar(content: Text('0555253444'));
+          },
         ),
+
         ListTile(
-          leading: Icon(Icons.notifications),
-          title: Text('Orders'),
-        )
+          leading: Icon(Icons.logout),
+          title: Text('Logout'),
+          onTap: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (ctx) => Loginscreen()));
+          },
+        ),
       ]),
     );
   }
